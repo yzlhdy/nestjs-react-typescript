@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  db:
+    container_name: mysql
+    image: benoit93260/mysql-server8.0.19
+    ports:
+      - ${DATABASE_PORT}:3306
+    environment:
+      POSTGRES_USER: ${DATABASE_USER}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD}
+      POSTGRES_DB: ${DATABASE_DB}
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
