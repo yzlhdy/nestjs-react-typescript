@@ -2,12 +2,12 @@ import React from 'react';
 
 import { Container } from './styles';
 
-const Admin: React.FC = () => {
+const User: React.FC = () => {
   return (
     <Container>
-      <h1>Admin</h1>
+      <h1>User</h1>
     </Container>
   );
 };
 
-export default Admin;
+export default User;

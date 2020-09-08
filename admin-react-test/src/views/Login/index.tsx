@@ -1,8 +1,8 @@
 import React from 'react';
 import { Form, Input, Button, message, } from 'antd';
 import { UserOutlined, LockOutlined } from '@ant-design/icons';
-// import { useHistory } from 'react-router-dom'
-// import axios from 'axios'
+import { useHistory } from 'react-router-dom'
+import axios from 'axios'
 // import { useQuery } from 'react-query'
 
 import { Container, LoginConent } from './styles';
@@ -11,13 +11,20 @@ import { Container, LoginConent } from './styles';
 
 const Login: React.FC = () => {
 
-  // const history = useHistory()
+  const history = useHistory()
   const onFinish = (values: any) => {
-    // reqLogin('/user/login', values).then(res => {
-    //   console.log(res);
 
-    // })
+    axios.post('http://localhost:4000/api/login', values).then(res => {
+      if (res.data.token) {
+        localStorage.setItem('token', res.data.token)
+        localStorage.setItem('username', res.data.username)
+        message.success('登录成功')
+        history.push('/')
 
+      } else {
+        message.error(res.data.message)
+      }
+    })
   };
 
   return (

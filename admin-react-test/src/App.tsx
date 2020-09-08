@@ -1,21 +1,20 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 
-import { Globalstyle } from './styles/GlobalStyles'
+import { GlobalStyle } from './styles/GlobalStyles'
 import Login from './views/Login'
 import Admin from './views/Admin'
-
 function App() {
   return (
-    <>
-      <Globalstyle />
+    <div className="App">
+      <GlobalStyle />
       <Router>
         <Switch>
           <Route path='/login' component={Login} />
-          <Route path="/" component={Admin} />
+          <Route path='/' component={Admin} />
         </Switch>
       </Router>
-    </>
+    </div>
   );
 }
 

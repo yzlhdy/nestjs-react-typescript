@@ -11,6 +11,7 @@ import { LoggingInterceptor } from './shared/logging.interceptor';
 import { IdeaModule } from './idea/idea.module';
 import { UserModule } from './user/user.module';
 
+
 @Module({
   imports: [
     TypeOrmModule.forRootAsync({
@@ -18,6 +19,7 @@ import { UserModule } from './user/user.module';
     }),
     IdeaModule,
     UserModule
+
   ],
   controllers: [AppController],
   providers: [AppService,

@@ -9,9 +9,10 @@ import { UserDTO, UserRo } from './user.dto';
 @Injectable()
 export class UserService {
     constructor(@InjectRepository(UserEntity) private userRepository: Repository<UserEntity>) { }
-    async showAll(): Promise<UserRo[]> {
+    async showAll() {
         const users = await this.userRepository.find()
         return users.map(user => user.toResponseObject(false))
+
     }
 
     async login(data: UserDTO): Promise<UserRo> {
@@ -23,8 +24,6 @@ export class UserService {
 
         return user.toResponseObject(true)
     }
-
-
 
     async register(data: UserDTO) {
         const { username } = data;

@@ -16,5 +16,6 @@ export class UserRo {
     username: string;
     // password: string;
     create: Date;
+    code?: number;
     token?: string;
 }
